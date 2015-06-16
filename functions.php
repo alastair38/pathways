@@ -5,6 +5,10 @@
  * @package _s
  */
 
+include_once(get_template_directory().'/bower_components/acf/acf.php' );
+
+require_once(get_template_directory().'/inc/cpt.php');
+
 if ( ! function_exists( '_s_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -112,11 +116,16 @@ add_action( 'widgets_init', '_s_widgets_init' );
  * Enqueue scripts and styles.
  */
 function _s_scripts() {
-	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'google fonts', 'http://fonts.googleapis.com/css?family=Raleway', array(), $theme_version, 'all' );
+
+	wp_enqueue_style( '_s-style', get_template_directory_uri() . '/css/style.css' );
 
 	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( '_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+    //adding accessible-modal script file in the footer
+    wp_enqueue_script( 'accessible-modal-js', get_template_directory_uri() . '/js/accessible-modal.js', array( 'jquery' ), $theme_version, true );
+
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -148,3 +157,37 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+/**
+ * Hook into pre_save_post to enable creation of new post objects from front end form
+ */
+
+function my_pre_save_post( $post_id ) {
+
+    // check if this is to be a new post
+    if( $post_id != 'new' )
+    {
+        return $post_id;
+    }
+
+    $titleArray = $_POST['fields']['field_557aad6fbac09'];
+    $title = $titleArray['address'];
+    // Create a new post
+    $post = array(
+        'post_status'  => 'draft',
+        'post_title'  => $title,
+        'post_type'  => 'locations',
+    );
+
+    // insert the post
+    $post_id = wp_insert_post( $post );
+
+    // update $_POST['return']
+    $_POST['return'] = add_query_arg( array('post_id' => $post_id), $_POST['return'] );
+
+    // return the new ID
+    return $post_id;
+}
+
+add_filter('acf/pre_save_post' , 'my_pre_save_post' );

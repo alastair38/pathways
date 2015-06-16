@@ -19,6 +19,7 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+        <?php echo the_field('description');?>
 		<?php
 			/* translators: %s: Name of current post */
 			the_content( sprintf(

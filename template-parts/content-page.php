@@ -14,6 +14,14 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
+
+        <?php acf_form(array(
+					'post_id'	=> 'new',
+					'field_groups'	=> array( 213 ),
+					'submit_value'	=> 'Report location'
+
+				)); ?>
+
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ),
