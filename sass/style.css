@@ -416,7 +416,6 @@ a {
     padding-left: 0; }
     .main-navigation ul ul {
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-      background: #fff;
       float: left;
       position: absolute;
       top: 1.5em;
@@ -425,14 +424,10 @@ a {
       .main-navigation ul ul ul {
         left: -999em;
         top: 0; }
-      .main-navigation ul ul li {
-        padding: 10px; }
-        .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
-          left: 100%; }
+      .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
+        left: 100%; }
       .main-navigation ul ul a {
         width: 200px; }
-    .main-navigation ul li {
-      padding: 0 1em; }
     .main-navigation ul li:hover > ul,
     .main-navigation ul li.focus > ul {
       left: auto; }
@@ -479,7 +474,7 @@ a {
 .pushy {
   position: fixed;
   width: 200px;
-  height: 100vh;
+  height: 100%;
   top: 0;
   z-index: 9999;
   background: #333332;
@@ -520,11 +515,11 @@ a {
   transform: translate3d(0, 0, 0); }
 
 .container-push, .push-push {
-  -webkit-transform: translate3d(0px, 0, 0);
-  -moz-transform: translate3d(0px, 0, 0);
-  -ms-transform: translate3d(0px, 0, 0);
-  -o-transform: translate3d(0px, 0, 0);
-  transform: translate3d(0px, 0, 0); }
+  -webkit-transform: translate3d(200px, 0, 0);
+  -moz-transform: translate3d(200px, 0, 0);
+  -ms-transform: translate3d(200px, 0, 0);
+  -o-transform: translate3d(200px, 0, 0);
+  transform: translate3d(200px, 0, 0); }
 
 /* Menu Transitions */
 .pushy, #container, .push {
@@ -539,7 +534,6 @@ a {
 
 .pushy-active .site-overlay {
   display: block;
-  height: 100vh;
   position: fixed;
   top: 0;
   right: 0;
@@ -551,12 +545,6 @@ a {
   -moz-animation: fade 500ms;
   -o-animation: fade 500ms;
   animation: fade 500ms; }
-
-.menu-btn {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 10; }
 
 @keyframes fade {
   0% {
@@ -920,22 +908,6 @@ body {
     body {
       font-size: 100%; } }
 
-@media screen and (min-width: 200px) {
-  .main-navigation {
-    display: none; } }
-
-@media screen and (min-width: 200px) {
-  .menu-btn {
-    display: block; } }
-@media screen and (min-width: 768px) {
-  .menu-btn {
-    display: none; } }
-
-@media screen and (min-width: 768px) {
-  .main-navigation {
-    display: block;
-    padding-bottom: .5em; } }
-
 #primary {
   padding: 0em 1em;
   margin-top: 9em; }
@@ -975,17 +947,12 @@ body {
     font-size: 150%; }
     @media screen and (min-width: 768px) {
       .site-branding h1 {
+        margin-top: 0.25em;
         margin-bottom: 0em;
         font-weight: normal;
         font-size: 170%; } }
     .site-branding h1:last-child {
       margin-right: 0; }
-    .site-branding h1 :after {
-      content: "demo!";
-      color: #FF6347;
-      padding: 0.1em 0.4em;
-      vertical-align: super;
-      font-size: 60%; }
 
 footer {
   padding: 0.5em;
@@ -1040,8 +1007,8 @@ article {
         position: absolute;
         bottom: 10%;
         left: 5%;
-        padding: 0 .5em;
-        width: 90%;
+        padding: .5em;
+        width: 70%;
         font-size: .9em; } }
 
 #openForm {
@@ -1055,11 +1022,6 @@ article {
   padding: 1em;
   text-transform: uppercase;
   z-index: 11; }
-  @media screen and (min-width: 200px) {
-    #openForm {
-      width: 25%;
-      font-size: 80%;
-      top: 5px; } }
 
 .form {
   display: none; }
@@ -1077,7 +1039,6 @@ article {
       width: 48.3871%;
       float: right;
       background: #fff;
-      height: 430px;
       margin: 3em 0 3em 0;
       margin-right: 0; }
       .widget-area:last-child, .home aside#right:last-child {
@@ -1095,7 +1056,6 @@ article {
       margin-right: 3.22581%;
       width: 48.3871%;
       float: left;
-      height: 430px;
       background: #fff;
       margin: 3em 0 3em 0;
       margin-right: 0; }
