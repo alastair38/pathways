@@ -18,6 +18,7 @@ get_header(); ?>
 				<?php
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
 					the_archive_description( '<div class="taxonomy-description">', '</div>' );
+                    echo '<span id="count">' . $wp_query->found_posts . '</span>' ;
 				?>
 			</header><!-- .page-header -->
 
@@ -50,5 +51,4 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

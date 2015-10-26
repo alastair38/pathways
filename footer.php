@@ -13,7 +13,7 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://twitter.com/dementiamap', '_s' ) ); ?>"><?php printf( esc_html__( "We're on the Twitter", '_s' ), 'WordPress' ); ?></a>
+			<a href="http://alastaircox.com/">A Project by Alastair Cox</a>
 
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

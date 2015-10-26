@@ -40,13 +40,32 @@ function dmap_locations() {
 	 	) /* end of options */
 	); /* end of register post type */
 
-    /* this adds your post categories to your custom post type */
-	register_taxonomy_for_object_type('category', 'locations');
-	/* this adds your post tags to your custom post type */
-	register_taxonomy_for_object_type('post_tag', 'locations');
+
 }
 	// adding the function to the Wordpress init
 	add_action( 'init', 'dmap_locations');
+
+	// now let's add custom tags (these act like categories)
+    register_taxonomy( 'local_authority',
+    	array('locations'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+    	array('hierarchical' => true,    /* if this is false, it acts like tags */
+    		'labels' => array(
+    			'name' => __( 'Local Authorities', 'jointstheme' ), /* name of the custom taxonomy */
+    			'singular_name' => __( 'Local Authority', 'jointstheme' ), /* single taxonomy name */
+    			'search_items' =>  __( 'Search Local Authorities', 'jointstheme' ), /* search title for taxomony */
+    			'all_items' => __( 'All Local Authorities', 'jointstheme' ), /* all title for taxonomies */
+    			'parent_item' => __( 'Parent Local Authority', 'jointstheme' ), /* parent title for taxonomy */
+    			'parent_item_colon' => __( 'Parent Local Authority:', 'jointstheme' ), /* parent taxonomy title */
+    			'edit_item' => __( 'Edit Local Authority', 'jointstheme' ), /* edit custom taxonomy title */
+    			'update_item' => __( 'Update Local Authority', 'jointstheme' ), /* update title for taxonomy */
+    			'add_new_item' => __( 'Add New Local Authority', 'jointstheme' ), /* add new title for taxonomy */
+    			'new_item_name' => __( 'New Local Authority Name', 'jointstheme' ) /* name title for taxonomy */
+    		),
+    		'show_admin_column' => true,
+    		'show_ui' => true,
+    		'query_var' => true,
+    	)
+    );
 
  register_taxonomy( 'problem_type',
     	array('locations'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
@@ -70,27 +89,6 @@ function dmap_locations() {
     	)
     );
 
-	// now let's add custom tags (these act like categories)
-    register_taxonomy( 'local_authority',
-    	array('locations'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
-    	array('hierarchical' => false,    /* if this is false, it acts like tags */
-    		'labels' => array(
-    			'name' => __( 'Local Authorities', 'jointstheme' ), /* name of the custom taxonomy */
-    			'singular_name' => __( 'Local Authority', 'jointstheme' ), /* single taxonomy name */
-    			'search_items' =>  __( 'Search Local Authorities', 'jointstheme' ), /* search title for taxomony */
-    			'all_items' => __( 'All Local Authorities', 'jointstheme' ), /* all title for taxonomies */
-    			'parent_item' => __( 'Parent Local Authority', 'jointstheme' ), /* parent title for taxonomy */
-    			'parent_item_colon' => __( 'Parent Local Authority:', 'jointstheme' ), /* parent taxonomy title */
-    			'edit_item' => __( 'Edit Local Authority', 'jointstheme' ), /* edit custom taxonomy title */
-    			'update_item' => __( 'Update Local Authority', 'jointstheme' ), /* update title for taxonomy */
-    			'add_new_item' => __( 'Add New Local Authority', 'jointstheme' ), /* add new title for taxonomy */
-    			'new_item_name' => __( 'New Local Authority Name', 'jointstheme' ) /* name title for taxonomy */
-    		),
-    		'show_admin_column' => true,
-    		'show_ui' => true,
-    		'query_var' => true,
-    	)
-    );
 
     /*
     	looking for custom meta boxes?

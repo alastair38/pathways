@@ -20,11 +20,11 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'dmap' ); ?></a>
 
 
 
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header push" role="banner">
          <button id="openForm" aria-controls="primary-menu" aria-expanded="false">Report a Location</button>
 
 
@@ -59,15 +59,21 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"></button>
 
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
 
-        <nav class="menu-opener">
-    <div class="menu-opener-inner"></div>
-  </nav>
+       <nav class="pushy pushy-left">
+    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+</nav>
+
+<!-- Site Overlay -->
+<div class="site-overlay"></div>
 
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
+<div id="container">
+    <!-- Menu Button -->
+    <div class="menu-btn">&#9776; Menu</div>
+</div>
