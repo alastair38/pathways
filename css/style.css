@@ -972,7 +972,11 @@ body {
     margin-right: 2.12766%;
     width: 65.95745%;
     margin-left: 17.02128%;
-    font-size: 150%; }
+    font-size: 150%;
+    background: url("http://127.0.0.1/package/wp-content/themes/_s/pathways.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 35% center; }
     @media screen and (min-width: 768px) {
       .site-branding h1 {
         margin-bottom: 0em;

@@ -171,6 +171,10 @@ body {
         @include span-columns(8);
         @include shift(2);
         font-size: 150%;
+        background: url('http://127.0.0.1/package/wp-content/themes/_s/pathways.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 35% center;
         :after {
         content: "demo!";
         color: #FF6347;
