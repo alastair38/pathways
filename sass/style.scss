@@ -95,6 +95,10 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 --------------------------------------------------------------*/
 @import "media/media";
 
+* {
+    transition: 450ms;
+}
+
 body {
 @include media($md) {
     font-size: 100%
@@ -125,6 +129,91 @@ body {
     }
 }
 
+
+#menuOpen {
+    @include media($sm) {
+    visibility: visible;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 90%; 
+    font-size: 95%; 
+    background: transparent;
+    width: 30%; 
+    z-index: 99; 
+    border: 0; 
+    text-align: left; 
+    cursor: pointer; 
+    color: #414141;
+    outline: none;
+    }
+    @include media($smbg) {
+    bottom: 94%;
+    }
+    @include media($md) {
+    visibility: hidden;
+    }
+}
+
+
+.mobileMenu {
+    @include media($sm) {
+    visibility: visible;
+    background: rgba(255,255,255,.95);
+    color: #414141;
+    opacity: 0;
+    transform: translateY(-100%);
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding-top: 5em;
+    text-align: center;
+    ul {
+        list-style-type: none;
+        margin-left: 0;
+        &#primary-menu{
+        font-size: 145%; 
+        }
+        &.sub-menu {
+        font-size: .9rem;
+        background: aliceblue; 
+        width: 60%; 
+        margin: 0em 20%; 
+        padding: 1em;
+        }
+    }
+    }
+    @include media($md) {
+      visibility: hidden; 
+    opacity: 0;
+    }
+    
+}
+
+.rotate {
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+
+.fa {
+    padding: 0 5px;
+}
+
+.open {
+    @include media($sm) {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+     min-height: 100vh;
+    position: absolute;
+    z-index: 98;
+    }
+    @include media($md) {
+      visibility: hidden;  
+    }
+}
 
 #primary {
     @include media($md) {
@@ -170,11 +259,19 @@ body {
         }
         @include span-columns(8);
         @include shift(2);
-        font-size: 150%;
         background: url('http://127.0.0.1/package/wp-content/themes/_s/pathways.svg');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: 35% center;
+        @include media($sm) {
+        background-position: 15% center;
+        font-size: 150%;
+        }
+        @include media($smbg) {
+        background-position: 25% center;
+        }
+        @include media($md) {
+        background-position: 25% center;
         :after {
         content: "demo!";
         color: #FF6347;
@@ -182,7 +279,15 @@ body {
         vertical-align: super;
         font-size: 60%;
         }
+        }
+        @include media($hg) {
+        background-position: 35% center;
+        }
     }
+}
+
+.moved {
+    transform: translateY(100vh);
 }
 
 

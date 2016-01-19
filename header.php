@@ -24,7 +24,7 @@
 
 
 
-	<header id="masthead" class="site-header push" role="banner">
+	<header id="masthead" class="site-header" role="banner">
          <button id="openForm" aria-controls="primary-menu" aria-expanded="false">Report a Location</button>
 
 
@@ -33,7 +33,8 @@
                                 <div id="modalDescription" class="screen-reader-text">
                                 Beginning of dialog window. Escape will cancel and close the window.
                                 </div>
-                                <button id="cancelButton" title="Close Accessibility Tips"><span id="cancel">Shut it down</span></button>
+                                <!-- 
+                                <button id="cancelButton" title="Close Accessibility Tips"><span id="cancel">Shut it down</span></button> -->
                                 <h1 id="modalTitle">Report Location</h1>
 
                                  <div class="frm">
@@ -63,9 +64,13 @@
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
 
-       <nav class="pushy pushy-left">
-    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-</nav>
+          <button id="menuOpen"><i class="fa fa-chevron-down"></i>Menu</button>
+   
+    <nav class="mobileMenu">
+    
+   <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>  
+    </nav>
+   
 
 <!-- Site Overlay -->
 <div class="site-overlay"></div>
@@ -74,6 +79,5 @@
 
 	<div id="content" class="site-content">
 <div id="container">
-    <!-- Menu Button -->
-    <div class="menu-btn">&#9776; Menu</div>
+    
 </div>
